@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item
+                    id="asset_char"
+                    src="assets/glb/guest2.glb"
+                ></a-asset-item>
+                <a-asset-item
+                    id="asset_text"
+                    src="assets/glb/guest2_text.glb"
+                ></a-asset-item>
+            </a-assets>
+
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/mark/guest2.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="2.58532487216426 2.58532487216426 2.58532487216426"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#asset_char"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+                <a-entity
+                    id="bowser-model"
+                    scale="2.58532487216426 2.58532487216426 2.58532487216426"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#asset_text"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
