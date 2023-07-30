@@ -20,12 +20,12 @@
         >
             <a-assets>
                 <a-asset-item
-                    id="animated-asset"
-                    src="assets/glb/asset.glb"
+                    id="asset_char"
+                    src="assets/guest1/char.glb"
                 ></a-asset-item>
                 <a-asset-item
-                    id="animated-asset2"
-                    src="assets/glb/pichu.glb"
+                    id="asset_text"
+                    src="assets/guest1/text.glb"
                 ></a-asset-item>
             </a-assets>
 
@@ -33,7 +33,7 @@
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
-                url="assets/mark/marker.patt"
+                url="assets/marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -43,27 +43,16 @@
                     id="bowser-model"
                     scale="2.58532487216426 2.58532487216426 2.58532487216426"
                     animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
+                    gltf-model="#asset_char"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker>
-
-            <a-marker
-                id="animated-marker2"
-                type="pattern"
-                preset="custom"
-                url="assets/mark/pattern-marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerB"
-            >
+                >
                 <a-entity
-                    id="bowser-model2"
+                    id="bowser-model"
                     scale="2.58532487216426 2.58532487216426 2.58532487216426"
                     animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset2"
+                    gltf-model="#asset_text"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
